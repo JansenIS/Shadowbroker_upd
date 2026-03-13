@@ -541,9 +541,9 @@ export default function Dashboard() {
               <div className="flex flex-col items-center" title={`Kp Index: ${data?.space_weather?.kp_index ?? 'N/A'}`}>
                 <div className="text-[8px] text-[var(--text-muted)] font-mono tracking-[0.2em]">SOLAR</div>
                 <div className={`text-[11px] font-mono font-bold ${
-                  (data?.space_weather?.kp_index ?? 0) >= 5 ? 'text-red-400' :
-                  (data?.space_weather?.kp_index ?? 0) >= 4 ? 'text-yellow-400' :
-                  'text-green-400'
+                  (data?.space_weather?.kp_index ?? 0) >= 5 ? 'text-cyan-200' :
+                  (data?.space_weather?.kp_index ?? 0) >= 4 ? 'text-sky-300' :
+                  'text-blue-400'
                 }`}>
                   {data?.space_weather?.kp_text || 'N/A'}
                 </div>
@@ -609,8 +609,8 @@ export default function Dashboard() {
 
       {/* BACKEND DISCONNECTED BANNER */}
       {backendStatus === 'disconnected' && (
-        <div className="absolute top-0 left-0 right-0 z-[9000] flex items-center justify-center py-2 bg-red-950/90 border-b border-red-500/40 backdrop-blur-sm">
-          <span className="text-[10px] font-mono tracking-widest text-red-400">
+        <div className="absolute top-0 left-0 right-0 z-[9000] flex items-center justify-center py-2 bg-sky-950/90 border-b border-sky-500/40 backdrop-blur-sm">
+          <span className="text-[10px] font-mono tracking-widest text-sky-300">
             BACKEND OFFLINE — Cannot reach backend server. Check that the backend container is running and BACKEND_URL is correct.
           </span>
         </div>

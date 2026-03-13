@@ -195,7 +195,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="w-full bg-black/60 backdrop-blur-md border border-emerald-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(0,255,128,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                className="w-full bg-black/60 backdrop-blur-md border border-cyan-700 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
             >
                 <div className="p-3 border-b border-emerald-500/30 bg-emerald-950/40 flex justify-between items-center">
                     <h2 className="text-xs tracking-widest font-bold text-emerald-400">REGION DOSSIER</h2>
@@ -236,7 +236,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                                 {d.local.state && <div className="flex justify-between"><span className="text-[var(--text-muted)]">STATE/PROVINCE</span><span className="text-[var(--text-primary)] font-bold">{d.local.state}</span></div>}
                                 {d.local.description && <div className="flex justify-between"><span className="text-[var(--text-muted)]">TYPE</span><span className="text-[var(--text-secondary)]">{d.local.description}</span></div>}
                                 {d.local.summary && (
-                                    <div className="mt-1 p-2 bg-black/60 border border-emerald-800/50 rounded text-[9px] text-[var(--text-secondary)] leading-relaxed">
+                                    <div className="mt-1 p-2 bg-black/60 border border-cyan-700/50 rounded text-[9px] text-[var(--text-secondary)] leading-relaxed">
                                         <span className="text-emerald-400 font-bold">&gt;_ INTEL: </span>
                                         {d.local.summary.length > 500 ? d.local.summary.substring(0, 500) + '...' : d.local.summary}
                                     </div>
@@ -262,17 +262,17 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
             const alertColorMap: Record<string, string> = {
                 '#ff1493': 'text-[#ff1493]', pink: 'text-[#ff1493]', red: 'text-red-400', yellow: 'text-yellow-400',
                 blue: 'text-blue-400', orange: 'text-orange-400', '#32cd32': 'text-[#32cd32]', purple: 'text-purple-400',
-                black: 'text-gray-400', white: 'text-white'
+                black: 'text-sky-300', white: 'text-white'
             };
             const alertBorderMap: Record<string, string> = {
-                '#ff1493': 'border-[#ff1493]/30', pink: 'border-[#ff1493]/30', red: 'border-red-500/30', yellow: 'border-yellow-500/30',
+                '#ff1493': 'border-cyan-700/30', pink: 'border-cyan-700/30', red: 'border-red-500/30', yellow: 'border-yellow-500/30',
                 blue: 'border-blue-500/30', orange: 'border-orange-500/30', '#32cd32': 'border-[#32cd32]/30', purple: 'border-purple-500/30',
-                black: 'border-gray-500/30', white: 'border-[var(--border-primary)]/30'
+                black: 'border-sky-500/30', white: 'border-[var(--border-primary)]/30'
             };
             const alertBgMap: Record<string, string> = {
                 '#ff1493': 'bg-[#ff1493]/10', pink: 'bg-[#ff1493]/10', red: 'bg-red-950/40', yellow: 'bg-yellow-950/40',
                 blue: 'bg-blue-950/40', orange: 'bg-orange-950/40', '#32cd32': 'bg-lime-950/40', purple: 'bg-purple-950/40',
-                black: 'bg-gray-900/40', white: 'bg-[var(--bg-panel)]'
+                black: 'bg-sky-950/30', white: 'bg-[var(--bg-panel)]'
             };
             const ac = flight.alert_color || 'white';
             const headerColor = alertColorMap[ac] || 'text-white';
@@ -281,7 +281,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
 
             const shadowColor = (ac === 'pink' || ac === '#ff1493') ? 'rgba(255,20,147,0.4)'
                 : ac === 'red' ? 'rgba(255,32,32,0.2)'
-                : ac === 'yellow' ? 'rgba(255,255,0,0.2)'
+                : ac === 'yellow' ? 'rgba(14,165,233,0.25)'
                 : ac === 'blue' ? 'rgba(59,130,246,0.2)'
                 : ac === 'orange' ? 'rgba(255,140,0,0.3)'
                 : ac === '#32cd32' ? 'rgba(50,205,50,0.2)'
@@ -293,7 +293,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className={`w-full bg-black/60 backdrop-blur-md border ${(ac === 'pink' || ac === '#ff1493') ? 'border-[#ff1493]' : ac === 'red' ? 'border-red-800' : ac === 'yellow' ? 'border-yellow-800' : ac === 'blue' ? 'border-blue-800' : ac === 'orange' ? 'border-orange-800' : ac === '#32cd32' ? 'border-lime-800' : ac === 'purple' ? 'border-purple-800' : 'border-[var(--border-secondary)]'} rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_${shadowColor}] pointer-events-auto overflow-hidden flex-shrink-0`}
+                    className={`w-full bg-black/60 backdrop-blur-md border ${(ac === 'pink' || ac === '#ff1493') ? 'border-cyan-700' : ac === 'red' ? 'border-cyan-700' : ac === 'yellow' ? 'border-cyan-700' : ac === 'blue' ? 'border-cyan-700' : ac === 'orange' ? 'border-cyan-700' : ac === '#32cd32' ? 'border-cyan-700' : ac === 'purple' ? 'border-cyan-700' : 'border-[var(--border-secondary)]'} rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_${shadowColor}] pointer-events-auto overflow-hidden flex-shrink-0`}
                 >
                     <div className={`p-3 border-b ${borderColor} ${bgColor} flex justify-between items-center`}>
                         <h2 className={`text-xs tracking-widest font-bold ${headerColor} flex items-center gap-2`}>
@@ -455,7 +455,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(0,128,255,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
                 >
                     <div className="p-3 border-b border-cyan-500/30 bg-cyan-950/40 flex justify-between items-center">
                         <h2 className={`text-xs tracking-widest font-bold ${selectedEntity.type === 'military_flight' ? 'text-red-400' : selectedEntity.type === 'private_flight' ? 'text-orange-400' : selectedEntity.type === 'private_jet' ? 'text-purple-400' : 'text-cyan-400'} flex items-center gap-2`}>
@@ -575,7 +575,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(0,128,255,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
                 >
                     <div className="p-3 border-b border-cyan-500/30 bg-cyan-950/40 flex justify-between items-center">
                         <h2 className={`text-xs tracking-widest font-bold ${headerColor} flex items-center gap-2`}>
@@ -655,7 +655,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full bg-black/60 backdrop-blur-md border border-orange-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(255,140,0,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-700 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
                 >
                     <div className="p-3 border-b border-orange-500/30 bg-orange-950/40 flex justify-between items-center">
                         <h2 className="text-xs tracking-widest font-bold text-orange-400 flex items-center gap-2">
@@ -718,7 +718,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full bg-black/60 backdrop-blur-md border border-yellow-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(255,255,0,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-700 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
                 >
                     <div className="p-3 border-b border-yellow-500/30 bg-yellow-950/40 flex justify-between items-center">
                         <h2 className="text-xs tracking-widest font-bold text-yellow-400 flex items-center gap-2">
@@ -762,7 +762,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full bg-black/60 backdrop-blur-md border border-red-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(255,0,0,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-700 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
                 >
                     <div className="p-3 border-b border-red-500/30 bg-red-950/40 flex justify-between items-center">
                         <h2 className="text-xs tracking-widest font-bold text-red-400 flex items-center gap-2">
@@ -809,7 +809,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(0,128,255,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                    className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
                 >
                     <div className="p-3 border-b border-cyan-500/30 bg-cyan-950/40 flex justify-between items-center">
                         <h2 className="text-xs tracking-widest font-bold text-cyan-400 flex items-center gap-2">
@@ -843,7 +843,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(0,128,255,0.2)] pointer-events-auto overflow-hidden flex-shrink-0"
+                className="w-full bg-black/60 backdrop-blur-md border border-cyan-800 rounded-xl flex flex-col z-10 font-mono shadow-[0_4px_30px_rgba(14,165,233,0.25)] pointer-events-auto overflow-hidden flex-shrink-0"
             >
                 <div className="p-3 border-b border-cyan-500/30 bg-cyan-950/40 flex justify-between items-center">
                     <h2 className="text-xs tracking-widest font-bold text-cyan-400 flex items-center gap-2">
@@ -918,7 +918,7 @@ function NewsFeedInner({ data, selectedEntity, regionDossier, regionDossierLoadi
                         REC // 00:00:00:00
                     </div>
                 </div>
-                <div className="p-3 bg-black/40 text-[9px] text-cyan-500/70 font-mono tracking-widest flex justify-between items-center">
+                <div className="p-3 bg-black/40 text-[9px] text-sky-300/80 font-mono tracking-widest flex justify-between items-center">
                     <span>{selectedEntity.name?.toUpperCase() || 'UNKNOWN MOUNT'}</span>
                     <span className="text-red-500 text-right">
                         {selectedEntity.extra?.last_updated
