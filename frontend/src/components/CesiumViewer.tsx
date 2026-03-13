@@ -1715,14 +1715,14 @@ export default function CesiumViewer({ data, activeLayers, activeFilters, effect
                                     <div className="flex flex-col gap-3 max-h-[300px] overflow-y-auto styled-scrollbar pr-1">
                                         {cluster.articles && cluster.articles.map((item: any, idx: number) => {
                                             const isHigh = item.risk_score >= 5;
-                                            const titleClass = isHigh ? "text-red-300 font-bold" : "text-cyan-300 font-medium";
+                                            const titleClass = isHigh ? "text-cyan-200 font-bold" : "text-cyan-300 font-medium";
                                             return (
                                                 <div key={idx} className="flex flex-col gap-1 pb-2 border-b border-cyan-500/20 last:border-0 last:pb-0">
                                                     <div className="flex items-center justify-between text-[9px] uppercase tracking-widest">
                                                         <span className="font-bold flex items-center gap-1 text-cyan-500">
                                                             &gt;_ {item.source}
                                                         </span>
-                                                        <span className={isHigh ? "text-red-500" : "text-cyan-500"}>LVL: {item.risk_score}/10</span>
+                                                        <span className={isHigh ? "text-cyan-300" : "text-cyan-500"}>LVL: {item.risk_score}/10</span>
                                                     </div>
                                                     <a href={item.link} target="_blank" rel="noreferrer" className={`text-xs ${titleClass} hover:text-white transition-colors leading-relaxed`}>
                                                         {item.title}
@@ -1744,34 +1744,34 @@ export default function CesiumViewer({ data, activeLayers, activeFilters, effect
                     className="absolute z-50 pointer-events-auto transform -translate-x-1/2 -translate-y-full pb-8"
                     style={{ left: popupPosition.x, top: popupPosition.y }}
                 >
-                    <div className="w-[320px] bg-black/80 backdrop-blur-md border border-lime-500/30 rounded-lg p-2 shadow-[0_0_15px_rgba(0,255,0,0.2)]">
+                    <div className="w-[320px] bg-black/80 backdrop-blur-md border border-cyan-500/30 rounded-lg p-2 shadow-[0_0_15px_rgba(14,165,233,0.25)]">
                         {(() => {
                             const cam = data?.cctv?.find((c: any) => String(c.id) === String(selectedEntity.id));
                             if (!cam) return null;
                             return (
                                 <div className="flex flex-col gap-2 font-mono">
-                                    <div className="flex items-center justify-between text-[9px] uppercase tracking-widest border-b border-lime-500/20 pb-1">
-                                        <span className="font-bold flex items-center gap-1 text-lime-500">
+                                    <div className="flex items-center justify-between text-[9px] uppercase tracking-widest border-b border-cyan-500/20 pb-1">
+                                        <span className="font-bold flex items-center gap-1 text-cyan-300">
                                             &gt;_ {cam.source_agency || 'INTERCEPT'}
                                         </span>
-                                        <span className="text-lime-500 animate-pulse">LIVE</span>
+                                        <span className="text-cyan-300 animate-pulse">LIVE</span>
                                     </div>
-                                    <div className="relative w-full h-12 border border-lime-900/50 bg-black/50 flex flex-col items-center justify-center p-1 rounded-sm">
-                                        <div className="text-[10px] text-lime-500 font-bold tracking-widest animate-pulse">
+                                    <div className="relative w-full h-12 border border-cyan-900/50 bg-black/50 flex flex-col items-center justify-center p-1 rounded-sm">
+                                        <div className="text-[10px] text-cyan-300 font-bold tracking-widest animate-pulse">
                                             [ FEED DIVERTED TO HOLOGRAPHIC MESH ]
                                         </div>
-                                        <div className="absolute top-1 left-1 text-[7px] text-lime-600">
+                                        <div className="absolute top-1 left-1 text-[7px] text-cyan-500">
                                             REC // {cam.id}
                                         </div>
                                     </div>
-                                    <div className="text-[10px] text-lime-400 font-bold leading-tight">
+                                    <div className="text-[10px] text-cyan-300 font-bold leading-tight">
                                         {cam.direction_facing || 'UNKNOWN MOUNT'}
                                     </div>
                                 </div>
                             );
                         })()}
                         {/* Connecting line to the marker */}
-                        <div className="absolute left-1/2 bottom-0 w-[1px] h-8 bg-lime-500/50 transform -translate-x-1/2" />
+                        <div className="absolute left-1/2 bottom-0 w-[1px] h-8 bg-cyan-500/50 transform -translate-x-1/2" />
                     </div>
                 </div>
             )}
@@ -1781,7 +1781,7 @@ export default function CesiumViewer({ data, activeLayers, activeFilters, effect
                     className="absolute z-50 pointer-events-auto transform -translate-x-1/2 -translate-y-full pb-8"
                     style={{ left: popupPosition.x, top: popupPosition.y }}
                 >
-                    <div className="w-[320px] bg-black/80 backdrop-blur-md border border-orange-500/30 rounded-lg p-3 shadow-[0_0_15px_rgba(255,165,0,0.2)]">
+                    <div className="w-[320px] bg-black/80 backdrop-blur-md border border-sky-500/30 rounded-lg p-3 shadow-[0_0_15px_rgba(14,165,233,0.25)]">
                         {(() => {
                             const incident = data?.gdelt?.[selectedEntity.id as number];
                             if (!incident) return null;
@@ -1789,13 +1789,13 @@ export default function CesiumViewer({ data, activeLayers, activeFilters, effect
                             // Use regex to strip GDELT's inline a-tags so we can render cleanly or just render dangerously
                             return (
                                 <div className="flex flex-col gap-2 font-mono">
-                                    <div className="flex items-center justify-between text-[9px] uppercase tracking-widest border-b border-orange-500/20 pb-1">
-                                        <span className="font-bold flex items-center gap-1 text-orange-500">
+                                    <div className="flex items-center justify-between text-[9px] uppercase tracking-widest border-b border-sky-500/20 pb-1">
+                                        <span className="font-bold flex items-center gap-1 text-sky-300">
                                             &gt;_ KINETIC EVENT
                                         </span>
-                                        <span className="text-red-500 font-bold animate-pulse">MILITARY</span>
+                                        <span className="text-cyan-300 font-bold animate-pulse">MILITARY</span>
                                     </div>
-                                    <div className="text-[11px] text-orange-300 font-bold leading-tight mt-1">
+                                    <div className="text-[11px] text-sky-200 font-bold leading-tight mt-1">
                                         {props.location || props.name || 'UNKNOWN LOCATION'}
                                     </div>
                                     <div className="text-[10px] text-gray-300 mt-2 leading-relaxed preview-html"
@@ -1804,7 +1804,7 @@ export default function CesiumViewer({ data, activeLayers, activeFilters, effect
                                 </div>
                             );
                         })()}
-                        <div className="absolute left-1/2 bottom-0 w-[1px] h-8 bg-orange-500/50 transform -translate-x-1/2" />
+                        <div className="absolute left-1/2 bottom-0 w-[1px] h-8 bg-sky-500/50 transform -translate-x-1/2" />
                     </div>
                 </div>
             )}

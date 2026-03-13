@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ededed;
-  --bg-primary: #000000;
-  --bg-secondary: rgb(17, 24, 39);
-  --bg-tertiary: rgb(31, 41, 55);
-  --bg-panel: rgba(17, 24, 39, 0.8);
-  --border-primary: rgb(55, 65, 81);
-  --border-secondary: rgb(75, 85, 99);
-  --text-primary: rgb(243, 244, 246);
-  --text-secondary: rgb(156, 163, 175);
-  --text-muted: rgb(107, 114, 128);
-  --text-heading: rgb(236, 254, 255);
-  --hover-accent: rgba(8, 51, 68, 0.2);
-  --scrollbar-thumb: rgba(100, 116, 139, 0.3);
-  --scrollbar-thumb-hover: rgba(100, 116, 139, 0.5);
+  --background: #020617;
+  --foreground: #dbeafe;
+  --bg-primary: #020617;
+  --bg-secondary: #0a1124;
+  --bg-tertiary: #0f1c38;
+  --bg-panel: rgba(7, 17, 35, 0.78);
+  --border-primary: rgba(56, 189, 248, 0.35);
+  --border-secondary: rgba(14, 165, 233, 0.55);
+  --text-primary: #e0f2fe;
+  --text-secondary: #7dd3fc;
+  --text-muted: #38bdf8;
+  --text-heading: #f0f9ff;
+  --hover-accent: rgba(14, 116, 144, 0.25);
+  --scrollbar-thumb: rgba(56, 189, 248, 0.35);
+  --scrollbar-thumb-hover: rgba(125, 211, 252, 0.65);
 }
 
 /* Light theme: only the map basemap changes — UI stays dark */
 [data-theme="light"] {
-  --background: #000000;
-  --foreground: #ededed;
-  --bg-primary: #000000;
-  --bg-secondary: rgb(17, 24, 39);
-  --bg-tertiary: rgb(31, 41, 55);
-  --bg-panel: rgba(17, 24, 39, 0.8);
-  --border-primary: rgb(55, 65, 81);
-  --border-secondary: rgb(75, 85, 99);
-  --text-primary: rgb(243, 244, 246);
-  --text-secondary: rgb(156, 163, 175);
-  --text-muted: rgb(107, 114, 128);
-  --text-heading: rgb(236, 254, 255);
-  --hover-accent: rgba(8, 51, 68, 0.2);
-  --scrollbar-thumb: rgba(100, 116, 139, 0.3);
-  --scrollbar-thumb-hover: rgba(100, 116, 139, 0.5);
+  --background: #020617;
+  --foreground: #dbeafe;
+  --bg-primary: #020617;
+  --bg-secondary: #0a1124;
+  --bg-tertiary: #0f1c38;
+  --bg-panel: rgba(7, 17, 35, 0.78);
+  --border-primary: rgba(56, 189, 248, 0.35);
+  --border-secondary: rgba(14, 165, 233, 0.55);
+  --text-primary: #e0f2fe;
+  --text-secondary: #7dd3fc;
+  --text-muted: #38bdf8;
+  --text-heading: #f0f9ff;
+  --hover-accent: rgba(14, 116, 144, 0.25);
+  --scrollbar-thumb: rgba(56, 189, 248, 0.35);
+  --scrollbar-thumb-hover: rgba(125, 211, 252, 0.65);
 }
 
 @theme inline {
@@ -45,9 +45,33 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(14, 165, 233, 0.16), transparent 30%),
+    radial-gradient(circle at 82% 6%, rgba(59, 130, 246, 0.2), transparent 28%),
+    linear-gradient(165deg, #01040d 0%, #020617 45%, #020b1a 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.08);
+}
+
+button,
+input,
+select,
+textarea {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover,
+button:focus-visible,
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 0 18px rgba(14, 165, 233, 0.25);
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.45);
+  color: #ecfeff;
 }
 
 /* Styled thin scrollbar for dark HUD UI */

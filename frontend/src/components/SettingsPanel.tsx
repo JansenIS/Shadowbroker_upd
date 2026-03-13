@@ -29,8 +29,8 @@ const WEIGHT_COLORS: Record<number, string> = {
     1: "text-gray-400 border-gray-600",
     2: "text-blue-400 border-blue-600",
     3: "text-cyan-400 border-cyan-600",
-    4: "text-orange-400 border-orange-600",
-    5: "text-red-400 border-red-600",
+    4: "text-sky-400 border-sky-600",
+    5: "text-cyan-300 border-cyan-500",
 };
 const MAX_FEEDS = 20;
 
@@ -38,12 +38,12 @@ const MAX_FEEDS = 20;
 const CATEGORY_COLORS: Record<string, string> = {
     Aviation: "text-cyan-400 border-cyan-500/30 bg-cyan-950/20",
     Maritime: "text-blue-400 border-blue-500/30 bg-blue-950/20",
-    Geophysical: "text-orange-400 border-orange-500/30 bg-orange-950/20",
-    Space: "text-purple-400 border-purple-500/30 bg-purple-950/20",
-    Intelligence: "text-red-400 border-red-500/30 bg-red-950/20",
-    Geolocation: "text-green-400 border-green-500/30 bg-green-950/20",
-    Weather: "text-yellow-400 border-yellow-500/30 bg-yellow-950/20",
-    Markets: "text-emerald-400 border-emerald-500/30 bg-emerald-950/20",
+    Geophysical: "text-sky-300 border-sky-500/30 bg-sky-950/20",
+    Space: "text-blue-300 border-blue-500/30 bg-blue-950/20",
+    Intelligence: "text-cyan-300 border-cyan-500/30 bg-cyan-950/20",
+    Geolocation: "text-blue-300 border-blue-500/30 bg-blue-950/20",
+    Weather: "text-sky-300 border-sky-500/30 bg-sky-950/20",
+    Markets: "text-cyan-300 border-cyan-500/30 bg-cyan-950/20",
     SIGINT: "text-rose-400 border-rose-500/30 bg-rose-950/20",
 };
 
@@ -214,7 +214,7 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                             </div>
                             <button
                                 onClick={onClose}
-                                className="w-8 h-8 rounded-lg border border-[var(--border-primary)] hover:border-red-500/50 flex items-center justify-center text-[var(--text-muted)] hover:text-red-400 transition-all hover:bg-red-950/20"
+                                className="w-8 h-8 rounded-lg border border-[var(--border-primary)] hover:border-cyan-500/50 flex items-center justify-center text-[var(--text-muted)] hover:text-cyan-300 transition-all hover:bg-cyan-950/20"
                             >
                                 <X size={14} />
                             </button>
@@ -231,11 +231,11 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                             </button>
                             <button
                                 onClick={() => setActiveTab("news-feeds")}
-                                className={`flex-1 px-4 py-2.5 text-[10px] font-mono tracking-widest font-bold transition-colors flex items-center justify-center gap-1.5 ${activeTab === "news-feeds" ? "text-orange-400 border-b-2 border-orange-500 bg-orange-950/10" : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"}`}
+                                className={`flex-1 px-4 py-2.5 text-[10px] font-mono tracking-widest font-bold transition-colors flex items-center justify-center gap-1.5 ${activeTab === "news-feeds" ? "text-sky-300 border-b-2 border-sky-500 bg-sky-950/10" : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"}`}
                             >
                                 <Rss size={10} />
                                 NEWS FEEDS
-                                {feedsDirty && <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />}
+                                {feedsDirty && <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />}
                             </button>
                         </div>
 
@@ -247,7 +247,7 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                                     <div className="flex items-start gap-2">
                                         <Shield size={12} className="text-cyan-500 mt-0.5 flex-shrink-0" />
                                         <p className="text-[10px] text-[var(--text-secondary)] font-mono leading-relaxed">
-                                            API keys are stored locally in the backend <span className="text-cyan-400">.env</span> file. Keys marked with <Key size={8} className="inline text-yellow-500" /> are required for full functionality. Public APIs need no key.
+                                            API keys are stored locally in the backend <span className="text-cyan-400">.env</span> file. Keys marked with <Key size={8} className="inline text-sky-400" /> are required for full functionality. Public APIs need no key.
                                         </p>
                                     </div>
                                 </div>
@@ -285,15 +285,15 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                                                                 <div key={api.id} className="border-t border-[var(--border-primary)]/40 px-4 py-3 hover:bg-[var(--bg-secondary)]/30 transition-colors">
                                                                     <div className="flex items-center justify-between mb-1">
                                                                         <div className="flex items-center gap-2">
-                                                                            {api.required && <Key size={10} className="text-yellow-500" />}
+                                                                            {api.required && <Key size={10} className="text-sky-400" />}
                                                                             <span className="text-xs font-mono text-[var(--text-primary)] font-medium">{api.name}</span>
                                                                         </div>
                                                                         <div className="flex items-center gap-1.5">
                                                                             {api.has_key ? (
                                                                                 api.is_set ? (
-                                                                                    <span className="text-[8px] font-mono px-1.5 py-0.5 rounded border border-green-500/30 text-green-400 bg-green-950/20">KEY SET</span>
+                                                                                    <span className="text-[8px] font-mono px-1.5 py-0.5 rounded border border-cyan-500/30 text-cyan-300 bg-cyan-950/20">KEY SET</span>
                                                                                 ) : (
-                                                                                    <span className="text-[8px] font-mono px-1.5 py-0.5 rounded border border-yellow-500/30 text-yellow-400 bg-yellow-950/20">MISSING</span>
+                                                                                    <span className="text-[8px] font-mono px-1.5 py-0.5 rounded border border-sky-500/30 text-sky-300 bg-sky-950/20">MISSING</span>
                                                                                 )
                                                                             ) : (
                                                                                 <span className="text-[8px] font-mono px-1.5 py-0.5 rounded border border-[var(--border-primary)] text-[var(--text-muted)]">PUBLIC</span>
@@ -349,9 +349,9 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                         {activeTab === "news-feeds" && (
                             <>
                                 {/* Info Banner */}
-                                <div className="mx-4 mt-4 p-3 rounded-lg border border-orange-900/30 bg-orange-950/10">
+                                <div className="mx-4 mt-4 p-3 rounded-lg border border-sky-900/30 bg-sky-950/10">
                                     <div className="flex items-start gap-2">
-                                        <Rss size={12} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                                        <Rss size={12} className="text-sky-400 mt-0.5 flex-shrink-0" />
                                         <p className="text-[10px] text-[var(--text-secondary)] font-mono leading-relaxed">
                                             Configure RSS/Atom feeds for the Threat Intel news panel. Each feed is scored by keyword heuristics and weighted by the priority you set. Up to <span className="text-orange-400">{MAX_FEEDS}</span> sources.
                                         </p>
@@ -389,7 +389,7 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                                                 </div>
                                                 <button
                                                     onClick={() => removeFeed(idx)}
-                                                    className="w-6 h-6 rounded flex items-center justify-center text-[var(--text-muted)] hover:text-red-400 hover:bg-red-950/20 transition-all opacity-0 group-hover:opacity-100"
+                                                    className="w-6 h-6 rounded flex items-center justify-center text-[var(--text-muted)] hover:text-cyan-300 hover:bg-cyan-950/20 transition-all opacity-0 group-hover:opacity-100"
                                                     title="Remove feed"
                                                 >
                                                     <Trash2 size={11} />
@@ -410,7 +410,7 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                                     <button
                                         onClick={addFeed}
                                         disabled={feeds.length >= MAX_FEEDS}
-                                        className="w-full py-2.5 rounded-lg border border-dashed border-[var(--border-primary)]/60 text-[var(--text-muted)] hover:border-orange-500/50 hover:text-orange-400 hover:bg-orange-950/10 transition-all text-[10px] font-mono flex items-center justify-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed"
+                                        className="w-full py-2.5 rounded-lg border border-dashed border-[var(--border-primary)]/60 text-[var(--text-muted)] hover:border-sky-500/50 hover:text-sky-300 hover:bg-sky-950/10 transition-all text-[10px] font-mono flex items-center justify-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed"
                                     >
                                         <Plus size={10} />
                                         ADD FEED ({feeds.length}/{MAX_FEEDS})
@@ -419,7 +419,7 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
 
                                 {/* Status message */}
                                 {feedMsg && (
-                                    <div className={`mx-4 mb-2 px-3 py-2 rounded text-[10px] font-mono ${feedMsg.type === "ok" ? "text-green-400 bg-green-950/20 border border-green-900/30" : "text-red-400 bg-red-950/20 border border-red-900/30"}`}>
+                                    <div className={`mx-4 mb-2 px-3 py-2 rounded text-[10px] font-mono ${feedMsg.type === "ok" ? "text-cyan-300 bg-cyan-950/20 border border-cyan-900/30" : "text-sky-300 bg-sky-950/20 border border-sky-900/30"}`}>
                                         {feedMsg.text}
                                     </div>
                                 )}
@@ -430,7 +430,7 @@ const SettingsPanel = React.memo(function SettingsPanel({ isOpen, onClose }: { i
                                         <button
                                             onClick={saveFeeds}
                                             disabled={!feedsDirty || feedSaving}
-                                            className="flex-1 px-4 py-2 rounded bg-orange-500/20 border border-orange-500/40 text-orange-400 hover:bg-orange-500/30 transition-colors text-[10px] font-mono flex items-center justify-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed"
+                                            className="flex-1 px-4 py-2 rounded bg-sky-500/20 border border-sky-500/40 text-sky-300 hover:bg-sky-500/30 transition-colors text-[10px] font-mono flex items-center justify-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed"
                                         >
                                             <Save size={10} />
                                             {feedSaving ? "SAVING..." : "SAVE FEEDS"}
