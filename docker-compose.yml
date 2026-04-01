@@ -23,7 +23,7 @@ services:
       context: ./frontend
     container_name: shadowbroker-frontend
     ports:
-      - "3000:3000"
+      - "3939:3939"
     environment:
       # Points the Next.js server-side proxy at the backend container via Docker networking.
       # Change this if your backend runs on a different host or port.

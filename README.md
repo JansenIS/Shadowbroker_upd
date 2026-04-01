@@ -52,11 +52,30 @@ cd Shadowbroker
 docker-compose up -d
 ```
 
-Open `http://localhost:3000` to view the dashboard! *(Requires Docker or Podman)*
+Open `http://localhost:3939` to view the dashboard! *(Requires Docker or Podman)*
 
 `compose.sh` auto-detects `docker compose`, `docker-compose`, `podman compose`, and `podman-compose`.
 If both runtimes are installed, you can force Podman with `./compose.sh --engine podman up -d`.
 Do not append a trailing `.` to that command; Compose treats it as a service name.
+
+### 🚀 Portable USB launchers (double-click from project root)
+
+For USB usage, launchers are now included directly in the repo root:
+
+- **Windows:** double-click `ShadowBroker-USB.bat`
+- **Linux (GUI):** mark as executable once and double-click `ShadowBroker-USB.desktop`
+
+These launchers auto-detect Docker/Podman compose, start the stack, and open:
+
+- `http://localhost:3939`
+
+To stop containers later:
+
+```bash
+docker compose -f docker-compose.yml down
+```
+
+(Or the equivalent `docker-compose` / `podman compose` command on your machine.)
 
 ---
 
@@ -231,7 +250,7 @@ cd Shadowbroker
 ./compose.sh up -d
 ```
 
-Open `http://localhost:3000` to view the dashboard.
+Open `http://localhost:3939` to view the dashboard.
 
 > **Deploying publicly or on a LAN?** No configuration needed for most setups.
 > The frontend proxies all API calls through the Next.js server to `BACKEND_URL`,
@@ -286,7 +305,7 @@ services:
     image: ghcr.io/bigbodycobain/shadowbroker-frontend:latest
     container_name: shadowbroker-frontend
     ports:
-      - "3000:3000"
+      - "3939:3939"
     environment:
       - BACKEND_URL=http://backend:8000   # Docker internal networking — no rebuild needed
     depends_on:
@@ -297,7 +316,7 @@ volumes:
   backend_data:
 ```
 
-> **How it works:** The frontend container proxies all `/api/*` requests through the Next.js server to `BACKEND_URL` using Docker's internal networking. The browser only ever talks to port 3000 — port 8000 does not need to be exposed externally.
+> **How it works:** The frontend container proxies all `/api/*` requests through the Next.js server to `BACKEND_URL` using Docker's internal networking. The browser only ever talks to port 3939 — port 8000 does not need to be exposed externally.
 >
 > `BACKEND_URL` is a plain runtime environment variable (not a build-time `NEXT_PUBLIC_*`), so you can change it in Portainer, Uncloud, or any compose editor without rebuilding the image. Set it to the address where your backend is reachable from inside the Docker network (e.g. `http://backend:8000`, `http://192.168.1.50:8000`).
 
@@ -360,7 +379,7 @@ npm run dev
 
 This starts:
 
-* **Next.js** frontend on `http://localhost:3000`
+* **Next.js** frontend on `http://localhost:3939`
 * **FastAPI** backend on `http://localhost:8000`
 
 ---
@@ -480,7 +499,7 @@ LTA_ACCOUNT_KEY=your_lta_key                  # Singapore CCTV cameras
 |---|---|---|
 | `BACKEND_URL` | `environment` in `docker-compose.yml`, or shell env | URL the Next.js server uses to proxy API calls to the backend. Defaults to `http://backend:8000`. **Runtime variable — no rebuild needed.** |
 
-**How it works:** The frontend proxies all `/api/*` requests through the Next.js server to `BACKEND_URL` using Docker's internal networking. Browsers only talk to port 3000; port 8000 never needs to be exposed externally. For local dev without Docker, `BACKEND_URL` defaults to `http://localhost:8000`.
+**How it works:** The frontend proxies all `/api/*` requests through the Next.js server to `BACKEND_URL` using Docker's internal networking. Browsers only talk to port 3939; port 8000 never needs to be exposed externally. For local dev without Docker, `BACKEND_URL` defaults to `http://localhost:8000`.
 
 ---
 
