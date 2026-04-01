@@ -51,8 +51,8 @@ def _build_cors_origins():
     """Build a CORS origins whitelist: localhost + LAN IPs + env overrides.
     Falls back to wildcard only if auto-detection fails entirely."""
     origins = [
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
+        "http://localhost:3939",
+        "http://127.0.0.1:3939",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
     ]
@@ -62,7 +62,7 @@ def _build_cors_origins():
         for info in socket.getaddrinfo(hostname, None, socket.AF_INET):
             ip = info[4][0]
             if ip not in ("127.0.0.1", "0.0.0.0"):
-                origins.append(f"http://{ip}:3000")
+                origins.append(f"http://{ip}:3939")
                 origins.append(f"http://{ip}:8000")
     except Exception:
         pass

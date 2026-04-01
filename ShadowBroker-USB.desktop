@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ShadowBroker USB Launcher
+Comment=Start ShadowBroker from USB
+Path=.
+Exec=sh -c 'cd "$(dirname "%k")" && ./shadowbroker-usb.sh'
+Terminal=true
+Categories=Utility;
